@@ -16,10 +16,9 @@ public class IndexControlador {
     
      @GetMapping("/index")
     public String index(Model model) {
-        
-         System.out.println("hasdasda");
 
-    return "index.html";
+
+    return "redirect:/Index.html";
     }
     
     
