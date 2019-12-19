@@ -18,7 +18,7 @@ public class IndexControlador {
     public String index(Model model) {
 
 
-    return "redirect:/Index.html";
+    return "redirect:/index";
     }
     
     

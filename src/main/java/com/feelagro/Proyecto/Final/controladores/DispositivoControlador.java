@@ -110,6 +110,13 @@ public class DispositivoControlador {
         }
     }
     
+         @GetMapping("/index")
+    public String index(Model model) {
+
+
+    return "redirect:/index";
+    }
+    
   
     
 }
