@@ -111,7 +111,9 @@ public class DispositivoControlador {
     }
     
          @GetMapping("/index")
-    public String index(Model model) {
+    public String index(Model model,HttpSession session) {
+        
+        session.invalidate();
 
 
     return "redirect:/index";
