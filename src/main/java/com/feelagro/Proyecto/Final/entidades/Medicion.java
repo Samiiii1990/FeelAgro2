@@ -1,4 +1,3 @@
-
 package com.feelagro.Proyecto.Final.entidades;
 
 import java.util.Date;
@@ -23,17 +22,17 @@ public class Medicion {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     
-    private float humedadrelativa;
-    private float temperatura;
-    private float humedadsuelo1;
-    private float humedadsuelo2;
+    private int humedadrelativa;
+    private int temperatura;
+    private int humedadsuelo1;
+    private int humedadsuelo2;
 
     @ManyToOne
     private Dispositivos dispositivos;
     
     @OneToOne
     private Parametrizacion parametrizacion;
-    
+
     public Integer getId() {
         return id;
     }
@@ -50,35 +49,35 @@ public class Medicion {
         this.fecha = fecha;
     }
 
-    public float getHumedadrelativa() {
+    public int getHumedadrelativa() {
         return humedadrelativa;
     }
 
-    public void setHumedadrelativa(float humedadrelativa) {
+    public void setHumedadrelativa(int humedadrelativa) {
         this.humedadrelativa = humedadrelativa;
     }
 
-    public float getTemperatura() {
+    public int getTemperatura() {
         return temperatura;
     }
 
-    public void setTemperatura(float temperatura) {
+    public void setTemperatura(int temperatura) {
         this.temperatura = temperatura;
     }
 
-    public float getHumedadsuelo1() {
+    public int getHumedadsuelo1() {
         return humedadsuelo1;
     }
 
-    public void setHumedadsuelo1(float humedadsuelo1) {
+    public void setHumedadsuelo1(int humedadsuelo1) {
         this.humedadsuelo1 = humedadsuelo1;
     }
 
-    public float getHumedadsuelo2() {
+    public int getHumedadsuelo2() {
         return humedadsuelo2;
     }
 
-    public void setHumedadsuelo2(float humedadsuelo2) {
+    public void setHumedadsuelo2(int humedadsuelo2) {
         this.humedadsuelo2 = humedadsuelo2;
     }
 
@@ -97,6 +96,7 @@ public class Medicion {
     public void setParametrizacion(Parametrizacion parametrizacion) {
         this.parametrizacion = parametrizacion;
     }
+
     
     
 }
