@@ -65,7 +65,7 @@ public class DispositivoControlador {
     public String listado(ModelMap modelo,HttpSession session) {
         
          Usuario user=(Usuario) session.getAttribute("User");
-          
+        
         List<Dispositivos> dispositivos;
    
         dispositivos = ds.buscarDispositivos(user.getId());
@@ -74,7 +74,7 @@ public class DispositivoControlador {
         
         return "dispositivos.html";
         
-    }
+    } 
     
     
     @GetMapping("/actualizacion")
