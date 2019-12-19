@@ -30,11 +30,13 @@ public class UsuarioControlador extends HttpServlet {
     
     @PostMapping("/crear")
     public String crear(@RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String clave) throws ErrorServicio {
-        System.out.println("llegue hasta usuario controlador =?");
-
+        Usuario usu = ur.buscarPorMail(mail);
+        if (usu!=null){
+            return "Index2.html";
+        } else {
         us.registrar(null, nombre, apellido, mail, clave);
-
         return "Index.html";
+    }
     }
     
     @GetMapping("/entrar")
