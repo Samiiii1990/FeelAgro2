@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>feelAgro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="fieldclimate-favicon.ico" type="image/x-icon" sizes="16x16">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="styles.8d35f96849305b1f7cbe.css">
+        <script charset="utf-8" src="1.b26993ee9aa0985e2be1.js"></script><script charset="utf-8" src="common.da90cfbb78caf176efe2.js"></script>
+        <script charset="utf-8" src="41.b1949edcd42730b3a225.js"></script><script charset="utf-8" src="2.d5950bd8d192c0ad5c64.js"></script>
+        <script charset="utf-8" src="40.4cfd6c0c0bba02ff4a54.js"></script><script charset="utf-8" src="3.2cd26a15039d25920c61.js"></script>
+        <script charset="utf-8" src="6.adacd8d11c65ea592fbe.js"></script><script charset="utf-8" src="7.0be133d800691d3f7fec.js"></script>
+        <script charset="utf-8" src="9.8fc34f0fdb119ec98580.js"></script><script charset="utf-8" src="39.3f16c7d2062b796bdea7.js"></script>
+        <script charset="utf-8" src="42.a3db470c9ef6f66b7573.js"></script><script charset="utf-8" src="16.d876c60456068926d338.js"></script>
+        <script charset="utf-8" src="15.95b0df20876289f25d87.js"></script>
+        <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <style>
+            .back[_ngcontent-c0], 
+            empty-back[_ngcontent-c0]
+            {position:absolute;
+             width:100%;
+             min-height:100%;
+             background-position:center center;
+             background-repeat:no-repeat;background-color:#009688;
+             opacity:0;
+             transition:opacity 2s linear}
+            .first[_ngcontent-c0]{opacity:1}
+            .preload[_ngcontent-c0]{background-color:#edecec}
+            .background-container[_ngcontent-c0]
+            {position:relative;background-color:#009688}</style>
+
+
+        <style>img[_ngcontent-c1]{
+                display:block;margin:0 auto}
+            </style>
+
+            <style>
+            .login[_ngcontent-c2]{
+                padding-bottom:21px}
+            .login-container[_ngcontent-c2]{
+                height:100vh}
+            app-form-layout[_ngcontent-c2]{
+                margin-bottom:22px}
+            </style>
+
+            <style>
+            .auth[_ngcontent-c2]{
+                overflow-x:hidden}
+            .form-item[_ngcontent-c2]{
+                margin-bottom:20px}
+            .auth-container[_ngcontent-c2]{
+                width:100%;
+                min-height:100vh;
+                display:flex;
+                justify-content:center;
+                padding-bottom:20px;
+                padding-top:20px}
+            .auth-item[_ngcontent-c2]{
+                -ms-grid-row-align:center;
+                align-self:center}
+            app-form-layout[_ngcontent-c2]{
+                display:flex;
+                justify-content:center}
+            app-logo[_ngcontent-c2]{
+                display:flex;
+                justify-content:center;
+                flex-direction:column-reverse}
+            .link[_ngcontent-c2]{
+                color:#797979;
+                text-decoration:none;
+                border-radius:2px;
+                cursor:pointer;
+                margin-top:10px;
+                border:0;
+                text-transform:uppercase;
+                font-weight:400;
+                transition:all .2s}
+            .link[_ngcontent-c2]:hover{
+                color:#000;
+                text-decoration:underline}
+            .btn[_ngcontent-c2]{
+                display:inline-block;
+                margin-bottom:0;
+                font-weight:400;
+                text-align:center;
+                vertical-align:middle;
+                touch-action:manipulation;
+                cursor:pointer;
+                background-image:none;
+                border:1px solid transparent;
+                white-space:nowrap;
+                padding:6px 12px;
+                font-size:13px;
+                line-height:1.42857143;
+                border-radius:2px;
+                -webkit-touch-callout:none;
+                -webkit-user-select:none;
+                -moz-user-select:none;
+                -ms-user-select:none;
+                user-select:none}
+            .head-info[_ngcontent-c2]{
+                font-family:roboto;
+                color:#5e5e5e;
+                font-size:13px;
+                padding-left:15px}
+            .navigate-block[_ngcontent-c2]{
+
+                position:absolute;
+                width:500px;
+                left:0;
+                bottom:-45px;
+                text-align:center}
+            .button-container[_ngcontent-c2]{
+                align-items:center;
+                align-content:center;
+                display:flex;
+                justify-content:center}
+            alert[_ngcontent-c2]{
+                text-align:center;
+                font-family:roboto;
+                font-size:13px}
+            .error[_ngcontent-c2]   
+            p[_ngcontent-c2]{
+                font-family:roboto;
+                color:#f6675d;
+                font-size:8.9pt;
+                text-align:center;
+                padding-left:15px}
+            </style>
+
+            <style>
+            .form-layout[_ngcontent-c3],.linkk{
+                background-color:#F2F3EB;
+                margin:auto;
+                position:relative;
+                width:100%}
+            .form-layout.shadow[_ngcontent-c3]{
+                box-shadow:0 1px 1px rgba(0,0,0,.15)}
+            .form-layout.login[_ngcontent-c3]{
+                max-width:500px;
+                min-width:500px;
+                padding:30px 40px 70px 25px;
+                border-radius:2px}
+            .form-layout.sm[_ngcontent-c3]{
+                max-width:500px;
+                min-width:500px;
+                border-radius:2px;
+                padding:30px}
+            .form-layout.dashboard[_ngcontent-c3]{
+                width:100%;
+                min-height:100px}
+            .form-layout.loading[_ngcontent-c3], .form-layout.widget-create[_ngcontent-c3]{
+                width:100%;
+                padding:20px}
+
+            </style>
+
+            <style>
+
+            .language-select[_ngcontent-c4]   select[_ngcontent-c4]{
+                border:0;
+                border-radius:4px;
+                padding:2px;
+                color:#428bca;
+                background:rgba(255,255,255,.7);
+                -moz-appearance:none;
+                text-indent:.01px}
+            </style>
+
+            <style>
+            .form-input[_ngcontent-c5]{
+                position:relative;
+                width:100%;
+                display:flex;
+                flex-direction:row}
+
+        
+            .form-input[_ngcontent-c5]   
+            .border.small[_ngcontent-c5]{
+                font-size:12px;
+                line-height:1.5;
+                padding:5px 12px}
+            .form-input[_ngcontent-c5]   
+            .border.very-small[_ngcontent-c5]{
+                font-size:12px;
+                line-height:1.5;
+                padding:2px 5px}
+            .form-input[_ngcontent-c5]   
+            input[_ngcontent-c5]{
+                width:100%;
+                outline:0;
+                font-family:roboto;
+                background:0 0}
+            .form-input[_ngcontent-c5]   
+            .material[_ngcontent-c5]{
+                height:35px;
+                font-size:13px;
+                line-height:1.42857143;
+                color:#000;
+                border:1px solid #e0e0e0;
+                transition:border-color ease-in-out .15s,
+                    box-shadow ease-in-out .15s;
+                border-left:0;
+                border-right:0;
+                border-top:0;
+                font-weight:400;
+            }
+            .form-input[_ngcontent-c5]   
+            .border[_ngcontent-c5]{
+                padding:6px 12px;
+                border:1px solid #e0e0e0}
+            .form-input[_ngcontent-c5]  
+            input[_ngcontent-c5]:focus{
+                outline:0;
+                border-color:#b4b4b4}
+            .form-input[_ngcontent-c5]   
+            .input-icon[_ngcontent-c5]{
+                min-width:42px;
+                padding:6px 15px}
+            .form-input[_ngcontent-c5]   
+            .suffix[_ngcontent-c5]{
+                min-width:42px;
+                padding:6px 15px;
+                display:inline-flex;
+                align-items:center}
+            .form-input[_ngcontent-c5]   
+            i[_ngcontent-c5]{
+                position:relative;
+                display:inline-block;
+                font:15px/1 Material-Design-Iconic-Font;
+                text-rendering:auto;
+                -webkit-font-smoothing:antialiased;
+                -moz-osx-font-smoothing:grayscale;top:3px;
+                color:#000}
+            .form-input[_ngcontent-c5]   
+            .account[_ngcontent-c5]:before{
+                content:'\f207';
+                box-sizing:border-box}
+            .form-input[_ngcontent-c5]   
+            .password[_ngcontent-c5]:before{
+                content:'\f191';
+                box-sizing:border-box}
+            .form-input[_ngcontent-c5]   
+            .calendar[_ngcontent-c5]:before{content:'\f330'}
+            .inline-me[_ngcontent-c5]{display:inline-block;width:auto}
+            .inline-me[_ngcontent-c5]   
+            input[_ngcontent-c5]{width:70px;margin-right:10px}
+            .form-input[_ngcontent-c5]   
+            input[_ngcontent-c5]::-moz-placeholder{color:#999}</style>
+
+        <style>
+            .form-button[_ngcontent-c6]{
+                position:absolute;
+                top:50%;
+                margin-top:-25px;
+                right:-25px;box-shadow:0 2px 5px rgba(0,0,0,.16),0 2px 10px rgba(0,0,0,.12);width:50px;height:50px;border-radius:50%;line-height:46px;color:#fff;background-color:#5cb85c;font-weight:400;outline:0;padding:5px 12px 6px;border:1px solid transparent}
+            .form-button[_ngcontent-c6]:focus, 
+            .form-button[_ngcontent-c6]:hover{background-color:#449d44}
+            .form-button[_ngcontent-c6]:active{background-color:#398439}
+            .form-button[_ngcontent-c6]   
+            i[_ngcontent-c6]{color:#fff;transition:all;transition-duration:.5s;display:inline-block;font:23px/1 Material-Design-Iconic-Font;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+            .form-button[_ngcontent-c6]:hover   
+            i[_ngcontent-c6]{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+            .form-button[_ngcontent-c6]   
+            i[_ngcontent-c6]:before{content:'\f2ee'}</style>
+
+            <style>
+            a[_ngcontent-c7]{
+                color:#474544;
+                display:inline-block;
+                background:rgba(255,255,255,.7);
+                margin:0 3px;
+                max-width:30px;
+                max-height:30px;
+                border-radius:20px;
+                vertical-align:top;
+                white-space:nowrap;
+                text-align:left;
+                cursor:pointer;
+                overflow:hidden;
+                transition:max-width .4s ease-in}
+            a[_ngcontent-c7]:hover{max-width:100%}
+            span[_ngcontent-c7]{
+                padding-right:10px;
+                width:auto;
+                display:inline-block;
+                line-height:29px;
+                font-family:roboto;
+                font-size:13px}
+            i[_ngcontent-c7]{
+                font:16px/30px Material-Design-Iconic-Font;
+                width:30px;
+                display:inline-block;
+                vertical-align:top;
+                text-align:center}
+            .question[_ngcontent-c7]{font-family:roboto}
+            .plus[_ngcontent-c7]{padding-left:1px}
+            .arrow[_ngcontent-c7]:before{content:'\f2ea'}
+            .plus[_ngcontent-c7]:before{content:'\f278'}
+
+            #c3{
+                width: 650px;
+                height: 350px;
+                font:16px/30px Material-Design-Iconic-Font;
+                background:#F2F3EB;
+                border-radius: 5%;
+                position: absolute;
+                top: 10%;
+                left:-10%;
+                box-sizing: border-box;
+                padding: 10px 30px;
+                display: none;
+
+            } 
+
+            h1 {
+                color: #474544;
+                font-size: 32px;
+                font-weight: 700;
+                letter-spacing: 7px;
+                text-align: center;
+                text-transform: uppercase;
+
+
+
+            }
+            #M1 {
+                color: #474544;
+                font-size: 12px;
+                font-weight: 14;
+                letter-spacing: 1px;
+                text-align: center;
+                text-transform: uppercase;
+
+            }
+            #M2 {
+                color: #474544;
+                font-size: 12px;
+                font-weight: 14;
+                letter-spacing: 1px;
+                text-align: center;
+                text-transform: uppercase;
+
+            }
+            input[type='text1']{
+                background: none;
+                border: none;
+                border-bottom: solid 2px #474544;
+                color: #474544;
+                font-size: 1.000em;
+                font-weight: 400;
+                margin: 10px;
+                padding: 20px;
+                text-transform: uppercase;
+
+                top:50%;
+                left:20%;
+
+            }
+
+            input[type='password']{
+                background: none;
+                border: none;
+                border-bottom: solid 2px #474544;
+                color: #474544;
+                font-size: 1.000em;
+                font-weight: 400;
+                margin: 10px;
+                padding: 20px;
+
+                top:40%;
+                left:20%;
+                text-transform: uppercase;
+
+            }
+            #form_button {
+                background: none;
+                border: solid 2px #474544;
+                color: #474544;
+                cursor: pointer;
+                position: absolute;
+                top:81%;
+                left:48%;
+                font-family: 'Helvetica', Arial, sans-serif;
+                font-size: 0.875em;
+                font-weight: bold;
+                outline: none;
+                padding: 10px 55px;
+                text-transform: uppercase;
+
+            }
+            #form_button1 {
+                background: none;
+                border: solid 2px #474544;
+                color: #474544;
+                cursor: pointer;
+                position: absolute;
+                top:81%;
+                left:57%;
+                font-family: 'Helvetica', Arial, sans-serif;
+                font-size: 0.875em;
+                font-weight: bold;
+                outline: none;
+                padding: 10px 55px;
+                text-transform: uppercase;
+
+
+            }
+
+        </style>
+
+       
+         <style>
+            .logo{
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                position: relative;
+                width: 30%;
+                height: 20%;
+            }
+        </style></head>
+    <body>
+    <app-root ng-version="6.1.10"><router-outlet></router-outlet><app-auth-background _nghost-c0="" class="ng-tns-c0-0 ng-star-inserted">
+    <div _ngcontent-c0="" class="auth"><div _ngcontent-c0="" class="background-container ng-trigger ng-trigger-backgroundAnimation"><!---->
+    <div _ngcontent-c0="" appbackgroundload="" class="back first item ng-tns-c0-0 ng-trigger ng-trigger-firstImageAnimation ng-star-inserted ng-animating" style="background-image: url(&quot;https://ng.fieldclimate.com/assets/img/backs/back1.jpg&quot;); animation: gen_css_kf_28 2000ms linear 0ms 1 normal forwards running; opacity: 1;">
+        
+    </div><!----><!---->
+    <div _ngcontent-c0="" appbackgroundload="" class="back ng-tns-c0-0 ng-star-inserted item ng-animating" style="background-image: url(&quot;https://ng.fieldclimate.com/assets/img/backs/back1.jpg&quot;); animation: gen_css_kf_29 2000ms linear 8000ms 1 normal forwards running; opacity: 0;"></div><!---->
+    <div _ngcontent-c0="" appbackgroundload="" class="back ng-tns-c0-0 ng-star-inserted item ng-animating" style="background-image: url(&quot;https://ng.fieldclimate.com/assets/img/backs/back2.jpg&quot;); animation: gen_css_kf_30 2000ms linear 16000ms 1 normal forwards running; opacity: 0;"></div><!---->
+    <div _ngcontent-c0="" appbackgroundload="" class="back ng-tns-c0-0 ng-star-inserted item ng-animating" style="background-image: url(&quot;https://ng.fieldclimate.com/assets/img/backs/back3.jpg&quot;); animation: gen_css_kf_31 2000ms linear 24000ms 1 normal forwards running; opacity: 0;"></div><!---->
+    <div _ngcontent-c0="" appbackgroundload="" class="back ng-tns-c0-0 ng-star-inserted item ng-animating" style="background-image: url(&quot;https://ng.fieldclimate.com/assets/img/backs/back4.jpg&quot;); animation: gen_css_kf_32 2000ms linear 32000ms 1 normal forwards running; opacity: 0;"></div><!---->
+    <div _ngcontent-c0="" appbackgroundload="" class="back ng-tns-c0-0 last ng-star-inserted ng-animating" style="background-image: url(&quot;https://ng.fieldclimate.com/assets/img/backs/back5.jpg&quot;); animation: gen_css_kf_33 2000ms linear 40000ms 1 normal forwards running, gen_css_kf_34 8000ms linear 42000ms 1 normal forwards running; opacity: 0;">
+
+                    </div><!----><router-outlet _ngcontent-c0="" class="ng-tns-c0-0 ng-star-inserted" style=""></router-outlet>
+
+        <app-login _nghost-c2="" class="ng-tns-c2-1 ng-star-inserted" style="">
+        <div _ngcontent-c2="" class="auth-container login-container ng-trigger ng-trigger-formRouterAnimation" style="transform: translateX(0px);">
+                    <app-form-layout _ngcontent-c2="" class="login auth-item" _nghost-c3="">
+                    <section _ngcontent-c3="" class="form-layout login shadow" style="opacity: 1;">
+                    
+                            <div _ngcontent-c2="" class="form-item">
+                            <app-logo _ngcontent-c2="" class="ng-tns-c2-1" _nghost-c1="">
+                                <div _ngcontent-c1="">
+                                <img _ngcontent-c1="" class="logo" src="img/logo.jpg">
+                                </div>
+                                </app-logo>
+                                </div><!---->
+                                        <!--REGISTRO<!---->
+                                <div _ngcontent-c2="" class="navigate-block ng-tns-c2-1">
+                                <app-navigate-button  _ngcontent-c2="" class="ng-tns-c2-1" _nghost-c7="">
+                                <a _ngcontent-c7="" id="boton3">
+                                <i _ngcontent-c7="" class="plus ng-star-inserted" style=""></i>
+                                <span _ngcontent-c7="" >Registrarse</span></a>
+                                </app-navigate-button>
+
+                                </div>
+                                <div id="c3">
+                                <h1>Registrarse</h1>
+                                <form action="/crear" method="post">
+                                <input type="text1" placeholder="Nombre" name="nombre" id="nombre" required>
+                                <input type="text1" placeholder="Apellido" name="apellido"id="apellido" required>
+                                <br>
+                                <input type="text1" placeholder="E-mail" name="mail" id="email" required>
+                                <input type="password" placeholder="Contraseña nueva" name="clave"id="clave" required>
+                                <br>
+                                <input type="password" placeholder="Repetir Contraseña" name="clave2"id="Clave2" required>
+                                <input id="form_button" type="submit" formaction="/crear" formmethod="POST" value="ACEPTAR">
+                                </form>
+                                </div>
+                                <div id="c4">
+                                <h1>Iniciar Sesion</h1>
+                                <form action="/entrar" method="post">
+                                <input type="text1" placeholder="Coloque su Email" name="mail" required>
+                                <input type="password" placeholder="Coloque su clave" name="clave" required>
+                                <div id="M1"> 
+                                    **Usuario registrado anteriormente**
+                              </div>
+                                <div id="M2">   
+                                <h4 th:if="${Validacion}">Los datos ingresados son incorrectos</h4> 
+                                <br>
+                                </div>  
+                                <input id="form_button1" type="submit"  value="INGRESAR">
+                                </form>
+                                </div>
+                                </section></app-form-layout></div>
+                                </app-login><
+                                !---->
+                             <a class="linkk" href="file:///Users/brunitox/Documents/Proyecto%20Final/web/inicio2.html" hreflang="en">English</a>
+ <a class="linkk" href="file:///Users/brunitox/Documents/Proyecto%20Final/web/inicio3.html" hreflang="fr">Français</a>
+</div><!----></div></app-auth-background></app-root>
+
+
+    <script type="text/javascript" src="js/efectoToggle.js" ></script>
+    <script type="text/javascript" src="runtime.328330ff4c01f4efeb7d.js"></script>
+    <script type="text/javascript" src="polyfills.1d57396a91858aa35760.js"></script>
+    <script type="text/javascript" src="scripts.8cc97e6f46cf0572cbdb.js"></script>
+    <script type="text/javascript" src="main.47bc797fc24ea6979261.js"></script>
+
+</body>
+</html>
