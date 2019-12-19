@@ -34,7 +34,7 @@ public class UsuarioControlador extends HttpServlet {
 
         us.registrar(null, nombre, apellido, mail, clave);
 
-        return "redirect:/index";
+        return "Index.html";
     }
     
     @GetMapping("/entrar")
