@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/dispositivos")
+@RequestMapping("/mediciones")
 public class MedicionControlador {
     
     @Autowired
