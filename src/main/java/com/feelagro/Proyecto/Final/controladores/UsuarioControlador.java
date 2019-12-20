@@ -45,6 +45,13 @@ public class UsuarioControlador extends HttpServlet {
         return "dispositivos.html";
         
     }
+    
+    @GetMapping("/entrar2")
+    public String entrada2(){
+        
+        return "dispositivos_en.html";
+        
+    }
 
     @PostMapping("/entrar")
     public String entrar(@RequestParam String mail, @RequestParam String clave, Model model, HttpSession session) throws ErrorServicio {
@@ -64,4 +71,38 @@ public class UsuarioControlador extends HttpServlet {
         }
     }
     
+    @GetMapping("/ingles")
+    public String ingles(){
+        return "Index_en.html";
+    }
+    
+    @PostMapping("/entrar2")
+    public String entrar2(@RequestParam String mail, @RequestParam String clave, Model model, HttpSession session) throws ErrorServicio {
+
+        if (us.validarDatos(mail, clave)) {
+            
+            Usuario respuesta = ur.buscarPorMail(mail);
+            
+            session.setAttribute("User", respuesta);
+       
+            return "redirect:/dispositivos/listado2";//ACÁ CAMBIÉ LA REDIRECCION
+            
+        } else {
+           
+       
+            return "redirect:/index2_en";
+        }
+    }
+    
+    
+    @PostMapping("/crear2")
+    public String crear2(@RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String clave) throws ErrorServicio {
+        Usuario usu = ur.buscarPorMail(mail);
+        if (usu!=null){
+            return "index2_en.html";
+        } else {
+        us.registrar(null, nombre, apellido, mail, clave);
+        return "Index_en.html";
+    }
+    }
 }
