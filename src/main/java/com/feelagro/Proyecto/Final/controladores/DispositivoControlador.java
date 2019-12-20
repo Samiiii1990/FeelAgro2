@@ -37,11 +37,17 @@ public class DispositivoControlador {
         
     return "SumarDispositivos.html";
     }
+  
+    @GetMapping("/SumarDispositivos2")
+    public String Sumar2(Model model) {
+
         
-
-
-    @PostMapping("/agregar")
+        
+    return "SumarDispositivos_en.html";
+    }
     
+    
+    @PostMapping("/agregar")
     public String AgregarDispositivo (Integer id,@RequestParam(required = false) String ubicacion,HttpSession session){
             
         try {
@@ -59,7 +65,23 @@ public class DispositivoControlador {
         
     }
     
-    
+    @PostMapping("/agregar2")
+    public String AgregarDispositivo2 (Integer id,@RequestParam(required = false) String ubicacion,HttpSession session){
+            
+        try {
+            
+            Usuario user=(Usuario) session.getAttribute("User");//ACA AGREGUÉ..!!!
+           
+            ds.AgregarDispositivo(id, ubicacion,user.getId());
+            
+       
+              
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(DispositivoControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                return "redirect:/dispositivos/listado2";
+        
+    }
     
     @GetMapping("/listado")//ACA AGREGUE...!!! //
     public String listado(ModelMap modelo,HttpSession session) {
@@ -76,6 +98,21 @@ public class DispositivoControlador {
         
     } 
     
+    @GetMapping("/listado2")//ACA AGREGUE...!!! //
+    public String listado2(ModelMap modelo,HttpSession session) {
+        
+         Usuario user=(Usuario) session.getAttribute("User");
+        
+        List<Dispositivos> dispositivos;
+   
+        dispositivos = ds.buscarDispositivos(user.getId());
+       
+        modelo.put("dispositivos", dispositivos);
+        
+        return "dispositivos_en.html";
+        
+    } 
+    
     
     @GetMapping("/actualizacion")
     public String actualizacion(@RequestParam(required = false) Integer id, ModelMap modelo) {
@@ -88,6 +125,20 @@ public class DispositivoControlador {
         
                 return "dispositivos.html";
     }
+    
+    @GetMapping("/actualizacion2")
+    public String actualizacion2(@RequestParam(required = false) Integer id, ModelMap modelo) {
+        if (id != null) {
+            Dispositivos dispositivos = ds.buscarDispositivo(id);
+            modelo.put("dispositivos", dispositivos);
+        } else {
+            modelo.put("dispositivos", new Dispositivos());
+        }
+        
+                return "dispositivos_en.html";
+    }
+    
+    
      @PostMapping("/actualizar")
     public String actualizar(@RequestParam(required = false)  Integer  id, @RequestParam String ubicacion, ModelMap modelo) {
 
@@ -99,6 +150,20 @@ public class DispositivoControlador {
 
         return "redirect:/dispositivos/listado";
     }
+    
+    @PostMapping("/actualizar2")
+    public String actualizar2(@RequestParam(required = false)  Integer  id, @RequestParam String ubicacion, ModelMap modelo) {
+
+        try {
+            ds.actualizarDispositivo(id, ubicacion);
+        } catch (Exception ex) {
+            return "redirect:/dispositivos/actualizacion2?id=" + id + "&error=" + ex.getMessage();
+        }
+
+        return "redirect:/dispositivos/listado2";
+    }
+    
+    
 
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam Integer id) {
@@ -110,6 +175,17 @@ public class DispositivoControlador {
         }
     }
     
+    @GetMapping("/eliminar2")
+    public String eliminar2(@RequestParam Integer id) {
+        try {
+            ds.eliminarDispositivo(id);
+            return "redirect:/dispositivos/listado2";
+        } catch (Exception ex) {
+            return "redirect:/dispositivos/listado2?error=No se pudo eliminar el dispositivo.";
+        }
+    }
+    
+    
          @GetMapping("/index")
     public String index(Model model,HttpSession session) {
         
@@ -119,6 +195,13 @@ public class DispositivoControlador {
     return "redirect:/index";
     }
     
-  
+  @GetMapping("/index2")
+    public String index2(Model model,HttpSession session) {
+        
+        session.invalidate();
+
+
+    return "redirect:/index2";
     
+}
 }
